@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom'
-import Cards from '../../../ecommerce/src/components/Cards'
+
 
 
 const NavBar = () => {
+  const handleSearch = (e) => {
+    context.setSearch(e.target.value)
+  }
+
   return (
     <nav className="navbar navbar-expand-lg bg-dark">
       <div className="container-fluid">
@@ -22,7 +26,7 @@ const NavBar = () => {
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <input className="form-control me-2" type="search" onChange={handleSearch} placeholder="Search" aria-label="Search" />
           </form>
         </div>
       </div>

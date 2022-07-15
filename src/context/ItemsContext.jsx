@@ -20,7 +20,7 @@ function ItemsProvider (props) {
   const getItems = async() => {
     const res = await axios.get('https://ecomerce-master.herokuapp.com/api/v1/item')
     console.log(res);
-    setItems(res.data.slice(0, 20))
+    setItems(res.data)
   }
 
   useEffect(() => {
