@@ -1,16 +1,20 @@
 import { Routes, Route } from 'react-router-dom'
-import Cards from '../../../ecommerce/src/components/Cards'
+import { ItemsProvider } from '../context/ItemsContext'
 import NavBar from '../Layouts/NavBar'
+import Cards from './Cards'
+
 
 
 const Home = () => {
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<Cards />} />
-          
-      </Routes>
+      <ItemsProvider>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Cards />} />
+
+        </Routes>
+      </ItemsProvider>
     </>
 
   )

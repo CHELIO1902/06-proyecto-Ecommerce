@@ -1,9 +1,10 @@
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-import Card from '../../../ecommerce/src/components/Card'
+import { useItemsContext } from '../context/ItemsContext'
+// import axios from 'axios'
+// import { useState, useEffect } from 'react'
+import Card from './Card'
 
 const Cards = () => {
-  const [items, setItems] = useState([])
+/*   const [items, setItems] = useState([])
 
   const getItems = async() => {
     const res = await axios.get('https://ecomerce-master.herokuapp.com/api/v1/item')
@@ -13,12 +14,15 @@ const Cards = () => {
 
   useEffect(() => {
     getItems()
-  }, [])
+  }, []) */
+  const context = useItemsContext()
 
   return (
     <div className='d-flex flex-wrap justify-content-evenly'>
-      {items.map((item) => (
-        <div className='row col-md-3'>
+      {context.items.map((item) => (
+        <div  className='row col-md-3'
+              key={item.id}
+        >
           <Card item={item} />
         </div>
       ))}
