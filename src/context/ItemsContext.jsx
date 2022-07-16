@@ -16,6 +16,8 @@ function ItemsProvider (props) {
   const [loading, setLoading] = useState(true) // Nos indica cuando los datos esten disponibles.
   const [selectedItems, setSelectedItems] = useState({}) // Nos dira que canción esta seleccionada
   const [search, setSearch] = useState('')
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(16);
 
   const getItems = async() => {
     const res = await axios.get('https://ecomerce-master.herokuapp.com/api/v1/item')
@@ -28,6 +30,32 @@ function ItemsProvider (props) {
     setLoading(false)
   }, [])
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
+
+  const  Pagination = ({ itemsPerPage, totalItems }) => {
+    const pageNumbers = [];
+  
+    for(let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++){
+      pageNumbers.push(i);
+    }
+    
+    return (
+      <nav>
+          <ul className='pagination'>
+          {pageNumbers.map(number => (
+            <li key={number} className='page-item'>
+              <a href='!#' className='page-link'>
+                {number}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )
+  }
+
   // Tenemos que indicar al Provider, que datos debe proveer. Estos datos son públicos para todos los componentes
   const value = {
     items,
@@ -35,9 +63,15 @@ function ItemsProvider (props) {
     setSelectedItems,
     loading,
     search,
-    setSearch
+    setSearch,
+    currentPage,
+    setCurrentPage,
+    itemsPerPage,
+    setItemsPerPage,
+    currentItems,
+    totalItems
   }
-
+ 
   // Siempre se llamaba value el prop del Provider con la data.
   // value es un objeto que indica que datos son globales.
   return (
