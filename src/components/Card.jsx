@@ -5,7 +5,13 @@ const Card = ({item}) => {
   const context = useItemsContext()
 
   return (
-    <div className='card bg-dark col animate__animated animate__pulse' style={{border: '2px solid black', margin: '10px'}}>
+    <div 
+      className='card-color card col animate__animated animate__pulse' 
+      style={{
+        backgroundColor: '#0F5132', 
+        border: '1px solid black', 
+        margin: '10px'}}
+      >
     <div className="overflow">
      <img className='card-img-top' src={item.image} alt="img-costummer" />
     </div>

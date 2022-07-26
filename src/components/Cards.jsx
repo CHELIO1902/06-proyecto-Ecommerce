@@ -10,19 +10,25 @@ const Cards = () => {
   return (
     <div className='d-flex flex-wrap justify-content-evenly'>
        {context.loading
-        ? <h1>Cargando...</h1>
+        ? <div className='alert alert-info'>
+            <h1>Cargando...</h1>
+        </div> 
         : context.items.filter(item => {
           if (context.search === '') {
-            return item // Si la busqueda es vacia, retorno todas las canciones
-          } else if (item.title.toLowerCase().includes(context.search.toLowerCase())) {
-            return item // Retorno la canción que si cumplen con el criterio de busqueda
+            return item 
+          } else if (item.product_name.toLowerCase().includes(context.search.toLowerCase())) {
+            return item 
           }
           return null
-        }).map((item) => (
-        <div  className='row col-md-3'
-              key={item.id}
+        }).map((item, id) => (
+        <div  
+          key={id}
+          className='row col-md-3'
         >
-          <Card item={item} />
+          <Card 
+          item={item} 
+          
+          />
         </div>
       ))}
     </div>
