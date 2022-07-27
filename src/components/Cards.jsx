@@ -1,6 +1,4 @@
 import { useItemsContext } from '../context/ItemsContext'
-// import axios from 'axios'
-// import { useState, useEffect } from 'react'
 import Card from './Card'
 
 const Cards = () => {
