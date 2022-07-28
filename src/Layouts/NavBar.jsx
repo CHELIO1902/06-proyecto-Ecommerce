@@ -14,7 +14,7 @@ const NavBar = () => {
     
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
-          <img src="./src/assets/logo.png" className='ecommerce img-fluid rounded float-start' alt="logo" />
+          <img src="./src/assets/logo.png" className='ecommerce navbar-brand img-fluid rounded float-start' alt="logo" />
      
         <button 
           className="navbar-toggler" 

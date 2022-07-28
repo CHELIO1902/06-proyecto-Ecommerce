@@ -10,7 +10,6 @@ const Pagination = () => {
       <ul className="pagination justify-content-center">
         <button 
           className="page-item"
-          onClick={context.nextPage}
           >
           <a className="page-link" href="#" aria-label="Previous">
             <span aria-hidden="true">&laquo; Anterior</span>
@@ -18,7 +17,6 @@ const Pagination = () => {
         </button>
         <button 
           className="page-item"
-          onClick={context.prevPage}
           >
           <a className="page-link" href="#" aria-label="Next">
             <span aria-hidden="true">Siguiente &raquo;</span>

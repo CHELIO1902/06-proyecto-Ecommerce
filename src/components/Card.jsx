@@ -1,4 +1,5 @@
 import { useItemsContext } from '../context/ItemsContext'
+import { Link } from 'react-router-dom'
 import './Card.css'
 
 const Card = ({item}) => {
@@ -18,9 +19,17 @@ const Card = ({item}) => {
     <div className='card-body text-light'>
      <h4 className='card-title text-center'>{item.product_name}</h4>
      <p className='card-text'>${item.price}</p>
-    <a href="#!" className="btn btn-outline-secondary rounded-0">
+    <Link 
+      to="/ProductsCards" 
+      className="btn btn-outline-secondary rounded-0"
+      key={item.id}
+      onClick={() => {
+        context.selectedItems(item)
+        console.log(item);
+      }}
+      >
       Comprar ya!
-    </a>
+    </Link>
    </div>
  </div>
   )
