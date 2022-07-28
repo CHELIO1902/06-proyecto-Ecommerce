@@ -11,35 +11,21 @@ export const EcommerceContext = createContext()
 
 // #2 Creación del Proveedor del Contexto
 // Es decir, maneja de donde se obtiene y como se pasa la información
-function ItemsProvider (props) {
+function ItemsProvider(props) {
   const [items, setItems] = useState([]) // data de la API.
-  const [currentPage, setCurrentPage] = useState(0)
   const [loading, setLoading] = useState(true) // Nos indica cuando los datos esten disponibles.
   const [selectedItems, setSelectedItems] = useState({}) // Nos dira que canción esta seleccionada
   const [search, setSearch] = useState('')
 
-  const getItems = async() => {
+  const getItems = async () => {
     const res = await axios.get('https://ecomerce-master.herokuapp.com/api/v1/item')
     setItems(res.data.slice(0, 12))
-  }
-
-  const nextPage = () => {
-    setCurrentPage(items + 12)
-    getItems()
-  }
-
-  const prevPage = () => {
-    setCurrentPage(items - 12)
-    getItems()
   }
 
   useEffect(() => {
     getItems()
     setItems(items)
     setLoading(false)
-    setCurrentPage()
-    nextPage()
-    prevPage()
   }, [])
 
   // Tenemos que indicar al Provider, que datos debe proveer. Estos datos son públicos para todos los componentes
@@ -49,9 +35,7 @@ function ItemsProvider (props) {
     setSelectedItems,
     loading,
     search,
-    setSearch,
-    nextPage,
-    prevPage
+    setSearch
   }
 
   // Siempre se llamaba value el prop del Provider con la data.

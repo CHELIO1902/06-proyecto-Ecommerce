@@ -1,9 +1,5 @@
 /* import { Link } from 'react-router-dom' */
-import { useItemsContext } from '../context/ItemsContext'
-
 const Pagination = () => {
-
-  const context = useItemsContext()
 
   return (
     <nav aria-label="Page navigation example">
