@@ -5,19 +5,22 @@ const ProductsCards = () => {
 
   return (
     <>
-      {context.selectedItems.product_name
+      {context.selectedItems._id
         ? <div className='d-flex flex-wrap justify-content-center' >
           <div className="card mb-3" style={{ width: '600px' }} >
             <div className="row g-0">
               <div className="col-md-4">
-                <img src={context.selectedItems.image} className="img-fluid rounded-start" alt="imagen-del-producto" />
+                <img 
+                  src={selectedItems.image} 
+                  className="img-fluid rounded-start" 
+                  alt="imagen-del-producto" />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
-                  <h5 className="card-title">{context.selectedItems.product_name}</h5>
-                  <p className="card-text">{context.selectedItems.description}</p>
-                  <p className="card-text">Clasificacion: {context.selectedItems.category}</p>
-                  <p className="card-text"><small className="text-muted">Precio: {context.selectedItems.price}</small></p>
+                  <h5 className="card-title">{selectedItems.product_name}</h5>
+                  <p className="card-text">{selectedItems.description}</p>
+                  <p className="card-text">Clasificacion: {selectedItems.category}</p>
+                  <p className="card-text"><small className="text-muted">Precio: {selectedItems.price}</small></p>
                   <Link
                     className="btn btn-outline-secondary rounded-0"
                   >

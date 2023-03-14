@@ -25,7 +25,6 @@ const Card = ({item}) => {
       key={item.id}
       onClick={() => {
         context.selectedItems(item)
-        console.log(item);
       }}
       >
       Comprar ya!
